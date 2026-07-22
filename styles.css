@@ -574,3 +574,164 @@ section+section {
 .gallery .card:nth-child(2) { transition-delay: 0.1s; }
 .gallery .card:nth-child(3) { transition-delay: 0.2s; }
 .gallery .card:nth-child(4) { transition-delay: 0.3s; }
+
+
+
+
+
+
+/* ==========================================
+   Sponsors Slider - Complete & Fixed CSS
+   ========================================== */
+
+/* Main Section Container */
+.sponsors-section {
+  max-width: 1100px;
+  margin: 4rem auto 0;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.sponsors-header {
+  margin-bottom: 2rem;
+}
+
+.eyebrow-sm {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sponsors-header h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin: 0.25rem 0 0.5rem;
+  color: var(--text);
+}
+
+/* Slider Outer Frame */
+.sponsors-slider {
+  position: relative;
+  overflow: hidden; /* Clips elements off-screen */
+  padding: 1.25rem 0;
+  border-radius: 1.2rem;
+  background: var(--panel); /* Deep forest green panel */
+  border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+  box-shadow: var(--shadow);
+}
+
+/* Moving Track */
+.sponsors-track {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content; /* Guarantees track takes natural width of all cards */
+  animation: scrollSponsors 22s linear infinite;
+  will-change: transform;
+}
+
+/* Pause marquee when user hovers */
+.sponsors-slider:hover .sponsors-track {
+  animation-play-state: paused;
+}
+
+/* Individual Sponsor Card */
+.sponsor-card {
+  flex: 0 0 auto; /* Prevents flex items from shrinking or breaking width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 140px;
+  padding: 1rem 0.75rem;
+  background: color-mix(in srgb, var(--bg) 60%, transparent); /* Dark hunter green tint */
+  border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+  border-radius: 0.85rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand); /* Warm metallic gold border on hover */
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+}
+
+/* Fixed Image Wrapper */
+.sponsor-img-wrapper {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  background: #ffffff; /* Gives white background so transparent PNGs and dark JPGs render cleanly */
+  padding: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sponsor-img-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.sponsor-card:hover .sponsor-img-wrapper img {
+  transform: scale(1.08);
+}
+
+/* Sponsor Name Text */
+.sponsor-name {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--muted); /* Soft sage green/cream */
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.sponsor-card:hover .sponsor-name {
+  color: var(--text); /* Cream white on hover */
+}
+
+/* Side Gradients (Blends slider into panel background) */
+.sponsors-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sponsors-fade.left {
+  left: 0;
+  background: linear-gradient(90deg, var(--panel) 0%, transparent 100%);
+}
+
+.sponsors-fade.right {
+  right: 0;
+  background: linear-gradient(-90deg, var(--panel) 0%, transparent 100%);
+}
+
+/* Infinite Right-to-Left Keyframe Animation */
+@keyframes scrollSponsors {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Moves exact length of 1 full set of cards */
+  }
+}
+
+/* Respect user reduction motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .sponsors-track {
+    animation: none;
+    overflow-x: auto;
+  }
+}
