@@ -265,23 +265,25 @@
       <h5 style="text-align: center;">🚀 <em>Participate and Innovate</em></h5>
 
       <form id="joinForm" style="max-width: 400px; margin: auto;">
-        <input type="text" name="name" placeholder="Your Name" required
-          style="width: 100%; padding: 12px; margin-bottom: 15px; font-size: 16px; box-sizing: border-box;" />
-        
-        <input type="email" name="email" placeholder="Your Email" required
-          style="width: 100%; padding: 12px; margin-bottom: 15px; font-size: 16px; box-sizing: border-box;" />
-        
-        <input type="tel" name="phone" placeholder="Phone (include country code)" 
-          pattern="[1-9]{1,3}[0-9]{7,12}" 
-          title="Please enter your full number including country code (e.g., 234 for Nigeria), without the + sign." 
-          style="width: 100%; padding: 12px; margin-bottom: 15px; font-size: 16px; box-sizing: border-box;" />
-        
-        <button type="submit" id="joinBtn" class="btn primary"
-          style="width: 100%; padding: 12px; font-size: 16px; border: none; cursor: pointer; box-sizing: border-box; border-radius: 5px;">
-          Apply
-        </button>
-      </form>
-
+    <input type="text" name="name" placeholder="Your Name" required
+        style="width: 100%; padding: 12px; margin-bottom: 15px; font-size: 16px; box-sizing: border-box;" />
+    
+    <input type="email" name="email" placeholder="Your Email" required
+        style="width: 100%; padding: 12px; margin-bottom: 15px; font-size: 16px; box-sizing: border-box;" />
+    
+    <input type="tel" name="phone" placeholder="Phone number" 
+        minlength="7"
+        style="width: 100%; padding: 12px; margin-bottom: 15px; font-size: 16px; box-sizing: border-box;" />
+    
+    <small style="display: block; margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 13px;">
+        Enter at least 7 digits (spaces, dashes, and + allowed)
+    </small>
+    
+    <button type="submit" id="joinBtn" class="btn primary"
+        style="width: 100%; padding: 12px; font-size: 16px; border: none; cursor: pointer; box-sizing: border-box; border-radius: 5px;">
+        Apply
+    </button>
+</form>
       <div id="successAnimation" style="display: none; margin-top: 20px;"></div>
     </div>
 
