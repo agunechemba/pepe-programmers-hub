@@ -44,35 +44,6 @@ document.querySelectorAll('.option-btn[data-target]').forEach(btn => {
   startTimer();
 })();
 
-// ===== TESTIMONIALS ROTATOR =====
-(function() {
-  const quotes = [
-    { t: "Prime Programmers Hub gave me the confidence to build my first website. Now I'm teaching my friends how to code too!", a: "— Sarah, 15" },
-    { t: "My mentor is so friendly and helpful. I love the community projects and challenges!", a: "— James, 16" },
-    { t: "Before joining, I thought coding was too hard. But the bootcamps made it easy and fun!", a: "— Emily, 14" },
-    { t: "I've learned Python, made a game, and even presented my app to my school! Thanks Prime Hub!", a: "— Aiden, 17" },
-    { t: "Joining Prime Programmers Hub connected me with peers who pushed me to complete real projects and sharpen my skills.", a: "— Daniel, 18" },
-    { t: "The community is amazing! I collaborated on web apps, attended bootcamps, and now mentor juniors.", a: "— Fatima, 19" },
-    { t: "From coding my first app to presenting it online, the support from Prime Programmers Hub was incredible.", a: "— Leo, 20" },
-    { t: "I never imagined I'd learn robotics and web development while making lifelong friends in one place.", a: "— Amaka, 21" },
-    { t: "Prime Programmers Hub helped me turn my coding hobby into serious projects I'm proud of sharing.", a: "— Chike, 22" }
-  ];
-  let i = 0;
-  const el = document.getElementById('tList');
-  if (!el) return;
-
-  function renderTesti() {
-    el.style.opacity = 0;
-    setTimeout(() => {
-      el.innerHTML = `<div>“${quotes[i].t}”</div><div style="margin-top:.6rem;font-weight:800;color:var(--brand)">${quotes[i].a}</div>`;
-      el.style.opacity = 1;
-    }, 200);
-  }
-  renderTesti();
-  setInterval(() => { i = (i + 1) % quotes.length;
-    renderTesti(); }, 4200);
-})();
-
 // ===== JOIN FORM (from original source) =====
 (function() {
   const form = document.getElementById('joinForm');

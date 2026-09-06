@@ -395,13 +395,68 @@ body {
 }
 
 /* ===== TESTIMONIALS ===== */
-.t-quote {
-  min-height: 96px;
-  color: var(--muted);
-  font-style: italic;
-  padding: 0.5rem 0;
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1.2rem;
+  background: var(--panel);
+  border: 1px solid rgba(252, 251, 247, 0.08);
+  box-shadow: var(--shadow);
 }
 
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.25rem;
+  background: rgba(11, 41, 20, 0.6);
+  border: 1px solid rgba(252, 251, 247, 0.08);
+  border-radius: 0.85rem;
+  min-height: 120px;
+}
+
+.testimonial-text {
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.testimonial-author {
+  font-weight: 800;
+  color: var(--brand);
+  font-style: normal;
+  margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .testimonial-card {
+    min-height: 100px;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  .testimonial-card {
+    min-height: 90px;
+    padding: 0.875rem;
+  }
+}
 /* ===== TEAM ===== */
 .team {
   display: grid;
@@ -483,38 +538,35 @@ body {
   padding: 0 1rem;
   text-align: center;
 }
-.sponsors-slider {
-  position: relative;
-  overflow: hidden;
-  padding: 1.25rem 0;
+
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.25rem;
+  padding: 1.25rem;
   border-radius: 1.2rem;
   background: var(--panel);
   border: 1px solid rgba(252, 251, 247, 0.08);
   box-shadow: var(--shadow);
+  justify-items: center;
+  align-items: stretch;
 }
-.sponsors-track {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  width: max-content;
-  animation: scrollSponsors 22s linear infinite;
-}
-.sponsors-slider:hover .sponsors-track {
-  animation-play-state: paused;
-}
+
 .sponsor-card {
-  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  width: 140px;
+  width: 100%;
+  max-width: 140px;
   padding: 1rem 0.75rem;
   background: rgba(11, 41, 20, 0.6);
   border: 1px solid rgba(252, 251, 247, 0.08);
   border-radius: 0.85rem;
+  min-height: 120px;
 }
+
 .sponsor-img-wrapper {
   width: 56px;
   height: 56px;
@@ -525,7 +577,9 @@ body {
   background: #ffffff;
   padding: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
 }
+
 .sponsor-img-wrapper img {
   max-width: 100%;
   max-height: 100%;
@@ -533,31 +587,46 @@ body {
   height: auto;
   object-fit: contain;
 }
+
 .sponsor-name {
   font-size: 0.825rem;
   font-weight: 700;
   color: var(--muted);
   white-space: nowrap;
+  text-align: center;
 }
-.sponsors-fade {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 70px;
-  z-index: 2;
-  pointer-events: none;
+
+/* Optional: Center the grid items when there are fewer items */
+.sponsors-grid {
+  justify-content: center;
 }
-.sponsors-fade.left {
-  left: 0;
-  background: linear-gradient(90deg, var(--panel) 0%, transparent 100%);
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sponsors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .sponsor-card {
+    max-width: 120px;
+    min-height: 100px;
+  }
 }
-.sponsors-fade.right {
-  right: 0;
-  background: linear-gradient(-90deg, var(--panel) 0%, transparent 100%);
-}
-@keyframes scrollSponsors {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+
+@media (max-width: 480px) {
+  .sponsors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  .sponsor-card {
+    max-width: 100px;
+    min-height: 90px;
+    padding: 0.75rem 0.5rem;
+  }
 }
 
 /* ===== FOOTER ===== */
