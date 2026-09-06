@@ -4,31 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <title>Prime Programmers Hub | Tech Community for Young Creators</title>
-  <meta name="description" content="Join Prime Programmers Hub (PPH), a vibrant community where teens across Nigeria learn to code, build collaborative projects, and attend free workshops." />
-  <meta name="keywords" content="coding for teens Nigeria, Prime Programmers Hub, PPH, learn programming, Python, JavaScript, tech community, coding workshop" />
-  <meta name="author" content="Agunechemba Ekene" />
+  <title>PPH</title>
+  <meta name="description" content="Prime Programmers Hub (PPH) – AI chatbot style. Join the community, meet prodigies, verify certificates and more." />
   <link rel="canonical" href="https://pph.name.ng/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://pph.name.ng/" />
-  <meta property="og:title" content="Prime Programmers Hub | Empowering Young Coders" />
-  <meta property="og:description" content="Join Prime Programmers Hub (PPH), a vibrant community where teens across Nigeria learn to code, build collaborative projects, and attend free workshops." />
-  <meta property="og:image" content="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/05/pph-logo-s.png" />
-
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:title" content="Prime Programmers Hub" />
-  <meta property="twitter:description" content="Join Prime Programmers Hub (PPH), a vibrant community where teens across Nigeria learn to code, build collaborative projects, and attend free workshops." />
-  <meta property="twitter:image" content="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/05/pph-logo-s.png" />
-
   <link rel="icon" href="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/05/pph-logo-s.png" />
+
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
-  
-  <link rel="stylesheet" href="styles.css?v=1.1">
-  <meta name="google-adsense-account" content="ca-pub-4977678185530379">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4977678185530379" />
 
   <script type="application/ld+json">
     {
@@ -48,522 +38,222 @@
       }
     }
   </script>
-
-  <style>
-    #code-bg {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.4;
-      mix-blend-mode: screen;
-      background: transparent;
-    }
-    header, main, footer, .banner, .drawer {
-      position: relative;
-      z-index: 1;
-    }
-    .mock img { filter: saturate(.95) contrast(.98); }
-    @media (prefers-reduced-motion: reduce) {
-      #code-bg { display: none !important; }
-    }
-  </style>
 </head>
 
 <body>
-  <canvas id="code-bg" aria-hidden="true"></canvas>
+  <!-- <a class="skip" href="#main">Skip to content</a> -->
 
-  <a class="skip" href="#main">Skip to content</a>
-
-  <div class="banner" role="status">
-    <a href="#join" style="text-decoration: none; color: inherit;">
-      Join Us - Become a creator
-    </a>
-  </div>
-
-  <header class="header" aria-label="Primary">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#home">
-        <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/05/pph-logo-s.png"
-          width="80" height="80" alt="Prime Programmers Hub logo" />
-        <span class="name">PPH</span>
-      </a>
-      <span class="bn" aria-label="Business Number">Since 2020</span>
-      <div class="links" role="menubar">
-        <a href="#about" role="menuitem">About</a>
-        <a href="#prodigies" role="menuitem">Prodigies</a>
-        <a href="#join" role="menuitem">Join</a>
-        <a href="#testimonials" role="menuitem">Testimonials</a>
-        <a href="#certificates" role="menuitem">Certificates</a>
-        <a href="#team" role="menuitem">Team</a>
+  <!-- ====== CHAT (always visible) ====== -->
+  <div class="chat-wrapper" id="main">
+    <div class="chat-card">
+      <div class="chat-header">
+        <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/05/pph-logo-s.png" alt="PPH logo" />
+        <span class="name">Prime Programmers Hub</span>
+        <span class="badge">Since 2020</span>
       </div>
-      <div style="display:flex; gap:.5rem; align-items:center">
-        <button class="hamburger" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileNav"
-          aria-label="Open menu">☰</button>
-      </div>
-    </nav>
-    <div class="drawer" id="mobileNav" role="menu">
-      <a href="#about" role="menuitem">About</a>
-      <a href="#prodigies" role="menuitem">Prodigies</a>
-      <a href="#join" role="menuitem">Join</a>
-      <a href="#testimonials" role="menuitem">Testimonials</a>
-      <a href="#certificates" role="menuitem">Certificates</a>
-      <a href="#team" role="menuitem">Team</a>
-    </div>
-  </header>
 
-  <main id="main">
-    <section id="home" class="hero-slider-section">
-      <div class="slider-container">
-        <div class="slide active">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-4.jpeg" alt="PPH Creators" />
-        </div>
-        <div class="slide">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-3.png" alt="PPH Creators" />
-        </div>
-        <div class="slide">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-2.png" alt="PPH Creators" />
-        </div>
-        <div class="slide">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-1.png" alt="PPH Creators" />
-        </div>
-
-        <div class="hero-overlay-content">
-          <span class="eyebrow">Prime</span>
-          <h1 class="h1">Programmmers Hub</h1>
-          <p class="lead">Join a tech community for young creators—across Nigeria and beyond.</p>
-          <div class="cta-row">
-            <a class="btn primary" href="#join">Join PPH</a>
-            <a class="btn" href="#ads">Grab Discounts!</a>
+      <!-- ===== HERO + HOME inside chat ===== -->
+      <div class="hero-in-chat">
+        <div class="hero-slider-mini">
+          <div class="slide active">
+            <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-4.jpeg" alt="PPH Creators" />
+          </div>
+          <div class="slide">
+            <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-3.png" alt="PPH Creators" />
+          </div>
+          <div class="slide">
+            <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-2.png" alt="PPH Creators" />
+          </div>
+          <div class="slide">
+            <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-1.png" alt="PPH Creators" />
+          </div>
+          <div class="slider-dots">
+            <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
           </div>
         </div>
 
-        <div class="slider-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section reveal">
-      <div class="panel about">
-        <div>
-          <h2 class="big">Why Join Our Community?</h2>
-          <p>Grow inside a lively network of young programmers who share ideas, build together, and lift one
-            another from curiosity to confidence.</p>
-        </div>
-        <div>
-          <h2 class="big">Events & workshops</h2>
-          <p>We unite our community with year-round meetups, free workshops, and an annual end-of-year gathering
-            wherever our members come together.</p>
+        <!-- <h1 class="title">Prime Programmers Hub</h1> -->
+        <p class="sub">Join a tech community for young creators—across Nigeria and beyond.</p>
+        <div class="cta-mini">
+          <a class="btn primary" href="#" onclick="showSection('section-join');return false;">🚀 Join PPH</a>
+          <a class="btn" href="#" onclick="showSection('section-ads');return false;">🛍️ Discounts</a>
         </div>
       </div>
 
-      <div id="ads" class="ad-container">
-        <a href="https://ng.oraimo.com?affiliate_code=894pqalk" target="_blank" rel="nofollow">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/04/2.jpg" alt="Oraimo affiliate link" />
-        </a>
-        <a href="https://shopinverse.com?sca_ref=6828905.dmXbRSTitR" target="_blank" rel="nofollow">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/04/1.jpg" alt="Shopinverse affiliate link" />
-        </a>
-        <a href="https://app.go54.com/signup?aff=ekenea_IRFXE" target="_blank" rel="nofollow">
-          <img src="https://eu2.contabostorage.com/0929d2ec15194ce3b3cba7a318485ab8:go54/Affiliate/336x280/affilliates-5.1.webp" alt="Go54 affiliate link" />
-        </a>
+      <!-- ===== QUESTION & BOX BUTTONS ===== -->
+      <div class="chat-message">
+        <div class="question">What do you want?</div>
+
+        <div class="options-grid">
+          <button class="option-btn" data-target="section-about">
+            <span class="emoji">📖</span>
+            <span class="label">About</span>
+          </button>
+          <button class="option-btn" data-target="section-ads">
+            <span class="emoji">🛍️</span>
+            <span class="label">Ads &amp; Deals</span>
+          </button>
+          <button class="option-btn" data-target="section-prodigies">
+            <span class="emoji">🏆</span>
+            <span class="label">Prodigies</span>
+          </button>
+          <button class="option-btn primary" data-target="section-join">
+            <span class="emoji">🚀</span>
+            <span class="label">Join Community</span>
+          </button>
+          <button class="option-btn" data-target="section-testimonials">
+            <span class="emoji">💬</span>
+            <span class="label">Success Stories</span>
+          </button>
+          <button class="option-btn" data-target="section-certificates">
+            <span class="emoji">📜</span>
+            <span class="label">Verify Certificate</span>
+          </button>
+          <button class="option-btn" data-target="section-team">
+            <span class="emoji">👥</span>
+            <span class="label">Meet the Team</span>
+          </button>
+          <button class="option-btn" data-target="section-sponsors">
+            <span class="emoji">🤝</span>
+            <span class="label">Sponsors</span>
+          </button>
+        </div>
       </div>
-    </section>
 
-<section id="prodigies" class="section">
-      <header class="section-head">
-        <h2 class="big">Meet the Prime Prodigies</h2>
-        <p class="muted">Celebrating creators from 2020–2026</p>
-      </header>
-      <div class="gallery" aria-live="polite">
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/emmanuel-okiri.jpg"
-            alt="Emmanuel — Python Prodigy at PPH" width="700" height="700">
-          <figcaption>Emmanuel — Python Prodigy 2025</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/great-e1755909629853.png"
-            alt="Great — JavaScript Developer" width="700" height="700">
-          <figcaption>Great — JavaScript Prodigy 2025</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/imoh-e1755909658586.png"
-            alt="Imoh — Python Developer" width="700" height="700">
-          <figcaption>Imoh — Python Prodigy 2024</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/chibuchi-e1755909599707.png"
-            alt="Chibuchi — Blockly Specialist" width="700" height="700">
-          <figcaption>Chibuchi — Blockly Prodigy 2024</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/evans-e1755909397669.jpg"
-            alt="Evans — HTML Canvas Artist" width="700" height="700">
-          <figcaption>Evans — HTML Canvas Prodigy 2023</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/noelion-e1755909545347.png"
-            alt="Noelion — JavaScript Expert" width="700" height="700">
-          <figcaption>Noelion — JavaScript Prodigy 2023</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/karyn.jpg"
-            alt="Karyn — Frontend Specialist" width="700" height="700">
-          <figcaption>Karyn — HTML, CSS Prodigy 2022</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/jason.jpg"
-            alt="Jason — Scratch Developer" width="700" height="700">
-          <figcaption>Jason — Scratch Prodigy 2022</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/benjamin.jpg"
-            alt="Benjamin — JavaScript Coder" width="700" height="700">
-          <figcaption>Benjamin — JavaScript Prodigy 2022</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/osayemi-e1755909574469.jpg"
-            alt="Osayemi — CSS Designer" width="700" height="700">
-          <figcaption>Osayemi — CSS Prodigy 2022</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/onyinye-agu.jpg"
-            alt="Onyinye — Logic Prodigy" width="700" height="700">
-          <figcaption>Onyinye — Blockly Prodigy 2021</figcaption>
-        </figure>
-
-        <figure class="card reveal">
-          <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/kushe.jpg"
-            alt="Kushe — Frontend Developer" width="700" height="700">
-          <figcaption>Kushe — CSS Prodigy 2021</figcaption>
-        </figure>
+      <div class="chat-footer">
+        <span>© 2026 PPH</span>
+        <span><button class="btn" style="height:auto;padding:0.2rem 0.8rem;background:transparent;border:1px solid rgba(255,255,255,0.1);border-radius:30px;font-size:0.7rem;" onclick="document.querySelector('.chat-wrapper').scrollIntoView({behavior:'smooth'})">↑ top</button></span>
+        <span>🤖 <span style="color:#6f7d6a;">click a box to explore</span></span>
       </div>
-    </section>
-
-    <!-- Start Application Form-->
-<section id="join" class="section reveal">
-  <div class="panel join" style="text-align: center;">
-
-    <div style="font-family: Arial, sans-serif; padding: 40px; text-align: center; box-sizing: border-box;">
-      <h2 style="text-align: center;"><strong>Become a Creator</strong></h2>
-      <!-- <h5 style="text-align: center;"><em>Become a creator</em></h5> -->
-
-  <form id="joinForm" style="max-width: 400px; margin: auto;">
-    <input type="text" name="name" placeholder="Your Name" required
-        style="width: 100%; padding: 12px; margin-bottom: 15px; font-size: 16px; box-sizing: border-box;" />
-    
-    <input type="email" name="email" placeholder="Your Email" required
-        style="width: 100%; padding: 12px; margin-bottom: 15px; font-size: 16px; box-sizing: border-box;" />
-    
-    <input type="tel" name="phone" placeholder="Phone number" 
-        minlength="7"
-        style="width: 100%; padding: 12px; margin-bottom: 15px; font-size: 16px; box-sizing: border-box;" />
-    
-    <button type="submit" id="joinBtn" class="btn primary"
-        style="width: 100%; padding: 12px; font-size: 16px; border: none; cursor: pointer; box-sizing: border-box; border-radius: 5px;">
-        Apply
-    </button>
-</form>
-      <div id="successAnimation" style="display: none; margin-top: 20px;"></div>
     </div>
-
-    <script>
-      const form = document.getElementById('joinForm');
-      const button = document.getElementById('joinBtn');
-      const animation = document.getElementById('successAnimation');
-
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        
-        // Disable button and show loading state
-        button.disabled = true;
-        button.textContent = 'Applying...';
-
-        const data = new FormData(form);
-
-        // Replace the URL below with your deployed Google Apps Script Web App URL
-        fetch('https://script.google.com/macros/s/AKfycbyTlZPuJi6oIdRBH5J_fA-3J8wTIAYuh1yIv3E7mAZI-SuuOjOm8fQGcswRLHX4J1AYdA/exec', {
-          method: 'POST',
-          body: data
-        })
-        .then(res => res.text())
-        .then(response => {
-          // Update button to final state
-          button.textContent = 'Applied';
-          form.reset();
-
-          // Display the success message in italics and light color
-          animation.style.display = 'block';
-          animation.innerHTML = '<i style="color: #FFEA00; font-size: 19px;">You have applied! Check your email for follow up.</i>';
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('Submission failed. Please try again.');
-          button.disabled = false;
-          button.textContent = 'Apply';
-        });
-      });
-    </script>
   </div>
-</section>
-<!-- End Application Form-->
-    
-    <section id="testimonials" class="section reveal">
+
+  <!-- ====== ALL CONTENT SECTIONS (hidden by default) ====== -->
+  <main>
+    <!-- ABOUT (separated) -->
+    <section id="section-about" class="content-section">
+      <div class="panel">
+        <div class="about-grid">
+          <div class="about-item">
+            <h2 class="big">Why Join Our Community?</h2>
+            <p>Grow inside a lively network of young programmers who share ideas, build together, and lift one another from curiosity to confidence.</p>
+          </div>
+          <div class="about-item">
+            <h2 class="big">Events &amp; Workshops</h2>
+            <p>We unite our community with year-round meetups, free workshops, and an annual end-of-year gathering wherever our members come together.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADS (separated) -->
+    <section id="section-ads" class="content-section">
+      <div class="panel" style="text-align:center;">
+        <h2 class="big">Exclusive Deals &amp; Discounts</h2>
+        <p class="muted" style="margin-bottom:0.5rem;">Grab these offers from our trusted partners</p>
+        <div class="ad-container">
+          <a href="https://ng.oraimo.com?affiliate_code=894pqalk" target="_blank" rel="nofollow"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/04/2.jpg" alt="Oraimo affiliate" /></a>
+          <a href="https://shopinverse.com?sca_ref=6828905.dmXbRSTitR" target="_blank" rel="nofollow"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/04/1.jpg" alt="Shopinverse affiliate" /></a>
+          <a href="https://app.go54.com/signup?aff=ekenea_IRFXE" target="_blank" rel="nofollow"><img src="https://eu2.contabostorage.com/0929d2ec15194ce3b3cba7a318485ab8:go54/Affiliate/336x280/affilliates-5.1.webp" alt="Go54 affiliate" /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODIGIES -->
+    <section id="section-prodigies" class="content-section">
+      <header class="section-head"><h2 class="big">Meet the Prime Prodigies</h2><p class="muted">Celebrating creators from 2020–2026</p></header>
+      <div class="gallery">
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/emmanuel-okiri.jpg" alt="Emmanuel" /><figcaption>Emmanuel — Python Prodigy 2025</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/great-e1755909629853.png" alt="Great" /><figcaption>Great — JavaScript Prodigy 2025</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/imoh-e1755909658586.png" alt="Imoh" /><figcaption>Imoh — Python Prodigy 2024</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/chibuchi-e1755909599707.png" alt="Chibuchi" /><figcaption>Chibuchi — Blockly Prodigy 2024</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/evans-e1755909397669.jpg" alt="Evans" /><figcaption>Evans — HTML Canvas Prodigy 2023</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/noelion-e1755909545347.png" alt="Noelion" /><figcaption>Noelion — JavaScript Prodigy 2023</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/karyn.jpg" alt="Karyn" /><figcaption>Karyn — HTML, CSS Prodigy 2022</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/jason.jpg" alt="Jason" /><figcaption>Jason — Scratch Prodigy 2022</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/benjamin.jpg" alt="Benjamin" /><figcaption>Benjamin — JavaScript Prodigy 2022</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/osayemi-e1755909574469.jpg" alt="Osayemi" /><figcaption>Osayemi — CSS Prodigy 2022</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/onyinye-agu.jpg" alt="Onyinye" /><figcaption>Onyinye — Blockly Prodigy 2021</figcaption></figure>
+        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/kushe.jpg" alt="Kushe" /><figcaption>Kushe — CSS Prodigy 2021</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- JOIN (application form) -->
+    <section id="section-join" class="content-section">
+      <div class="panel join" style="text-align:center;padding:2rem 1.5rem;">
+        <h2 class="big">Become a Creator</h2>
+        <form id="joinForm" style="max-width:400px;margin:auto;">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <input type="tel" name="phone" placeholder="Phone number" minlength="7" />
+          <button type="submit" id="joinBtn" class="btn primary" style="width:100%;border-radius:8px;">Apply</button>
+        </form>
+        <div id="successAnimation" style="display:none;margin-top:20px;"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="section-testimonials" class="content-section">
       <div class="panel testimonials">
         <h2 class="big">Success Stories</h2>
-        <div id="tList" class="t-quote" aria-live="polite"></div>
+        <div id="tList" class="t-quote"></div>
       </div>
     </section>
 
-<section id="certificates" class="section reveal">
-  <div class="panel" style="text-align: center;">
-    <h2 class="big">Certificate Verification</h2>
-    <p>Validate the authenticity of PPH certificates.</p>
-    <div style="max-width: 400px; margin: auto;">
-      <input type="text" id="certificateId" placeholder="Enter Certificate ID" style="width: 100%; padding: 12px; margin-bottom: 10px;">
-      <button id="verifyBtn" class="btn primary" style="width: 100%;">Verify Authenticity</button>
-    </div>
-    <div id="result" style="margin-top: 20px;"></div>
-
-    <script>
-      const webAppURL = "https://script.google.com/macros/s/AKfycbwPp432y_PHVxKmJdvgS_hzacky8s_OiItnElY8mhfBXjEA0sUUAFhwa5qQv4oi_49P/exec";
-      const verifyBtn = document.getElementById("verifyBtn");
-      const resultDiv = document.getElementById("result");
-      
-      verifyBtn.addEventListener("click", () => {
-        const certId = document.getElementById("certificateId").value.trim();
-        resultDiv.innerHTML = "";
-        
-        if (!certId) { 
-          showMessage("⚠️ Please enter a Certificate ID.", "error"); 
-          return; 
-        }
-        
-        showMessage("🔍 Verifying...", "info");
-        
-        fetch(`${webAppURL}?certificateId=${encodeURIComponent(certId)}`)
-          .then(res => {
-            if (!res.ok) throw new Error("Network error");
-            return res.json();
-          })
-          .then(data => {
-            if (data.found) {
-              // FIX: Using capitalized keys to match your spreadsheet columns
-              const studentName = data.record.Name || "a PPH Member"; 
-              const courseName = data.record.Course || "a PPH Program";
-              const issueDate = data.record.Date || "N/A";
-
-              resultDiv.innerHTML = `
-                <div style="border: 2px solid #28a745; padding: 15px; border-radius: 8px; background-color: rgba(40, 167, 69, 0.05); text-align: left; max-width: 350px; margin: auto;">
-                  <p style="color:#28a745; font-weight: 800; margin-bottom: 10px; text-align: center;">✅ OFFICIAL VERIFICATION</p>
-                  <p style="margin: 5px 0;"><strong>Name:</strong> ${studentName}</p>
-                  <p style="margin: 5px 0;"><strong>Course:</strong> ${courseName}</p>
-                  <p style="margin: 5px 0;"><strong>Date:</strong> ${issueDate}</p>
-                  <p style="margin: 5px 0;"><strong>Status:</strong> ${data.record.Status || 'Verified'}</p>
-                </div>`;
-            } else {
-              showMessage("❌ Certificate not found. Please check the ID.", "error");
-            }
-          })
-          .catch(err => { 
-            showMessage("⚠️ Connection error. Please try again.", "error");
-            console.error(err);
-          });
-      });
-
-      function showMessage(msg, type) {
-        let color = type === "error" ? "red" : (type === "info" ? "gray" : "#28a745");
-        resultDiv.innerHTML = `<p style="color:${color}; font-weight: 600;">${msg}</p>`;
-      }
-    </script>
-  </div>
-</section>
-
-<section id="team" class="section reveal">
-  <div class="panel team">
-    <div>
-      <h2 class="big">Agunechemba Ekene</h2>
-      <p><strong>Founder</strong></p>
-      <div style="margin-top: 1.5rem;">
-        <a class="btn primary" href="https://agunechemba.name.ng/" target="_blank" rel="noopener">Connect</a>
+    <!-- CERTIFICATES -->
+    <section id="section-certificates" class="content-section">
+      <div class="panel" style="text-align:center;">
+        <h2 class="big">Certificate Verification</h2>
+        <p>Validate the authenticity of PPH certificates.</p>
+        <div style="max-width:400px;margin:auto;">
+          <input type="text" id="certificateId" placeholder="Enter Certificate ID" style="width:100%;padding:12px;margin-bottom:10px;border-radius:8px;border:1px solid #444;background:#1e2a1e;color:#fff;" />
+          <button id="verifyBtn" class="btn primary" style="width:100%;border-radius:8px;">Verify Authenticity</button>
+        </div>
+        <div id="result" style="margin-top:20px;"></div>
       </div>
-    </div>
-  </div>
-  <br>
-  <div class="panel team">
-    <div>
-      <h2 class="big">Kolawole Elizabeth</h2>
-      <p><strong>Co-Founder</strong></p>
-      <div style="margin-top: 1.5rem;">
-        <a class="btn primary" href="https://wa.me/2348034982898" target="_blank" rel="noopener">Connect</a>
+    </section>
+
+    <!-- TEAM -->
+    <section id="section-team" class="content-section">
+      <div class="panel team"><div><h2 class="big">Agunechemba Ekene</h2><p><strong>Founder</strong></p><div style="margin-top:1.5rem;"><a class="btn primary" href="https://agunechemba.name.ng/" target="_blank">Connect</a></div></div></div>
+      <br />
+      <div class="panel team"><div><h2 class="big">Kolawole Elizabeth</h2><p><strong>Co-Founder</strong></p><div style="margin-top:1.5rem;"><a class="btn primary" href="https://wa.me/2348034982898" target="_blank">Connect</a></div></div></div>
+    </section>
+
+    <!-- SPONSORS -->
+    <section id="section-sponsors" class="content-section">
+      <div class="sponsors-section" style="margin-top:0;">
+        <div class="sponsors-header"><span class="eyebrow-sm" style="font-weight:800;color:var(--brand);text-transform:uppercase;">Empowered By</span><p class="muted">Our Sponsors &amp; Partners</p></div>
+        <div class="sponsors-slider">
+          <div class="sponsors-fade left"></div><div class="sponsors-fade right"></div>
+          <div class="sponsors-track">
+            <div class="sponsor-card"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/vv1svn9w/Raspberry-Pi-Logo.jpg" alt="Raspberry Pi" /></div><span class="sponsor-name">Raspberry Pi</span></div>
+            <div class="sponsor-card"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/XkjM99Tt/Code-Club-Green.png" alt="Code Club" /></div><span class="sponsor-name">Code Club</span></div>
+            <div class="sponsor-card"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/yxXXm6t/microbit.png" alt="micro:bit" /></div><span class="sponsor-name">micro:bit</span></div>
+            <div class="sponsor-card"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/k2ymRB0Q/scratch-foundation.jpg" alt="Scratch" /></div><span class="sponsor-name">Scratch Foundation</span></div>
+            <div class="sponsor-card"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/sdC9cQJ4/Google-skills.png" alt="Google Skills" /></div><span class="sponsor-name">Google Skills</span></div>
+            <div class="sponsor-card"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/FbYDRpbv/clasam.jpg" alt="Clasam" /></div><span class="sponsor-name">Clasam Schools</span></div>
+            <!-- duplicate for seamless loop -->
+            <div class="sponsor-card" aria-hidden="true"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/vv1svn9w/Raspberry-Pi-Logo.jpg" alt="Raspberry Pi" /></div><span class="sponsor-name">Raspberry Pi</span></div>
+            <div class="sponsor-card" aria-hidden="true"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/XkjM99Tt/Code-Club-Green.png" alt="Code Club" /></div><span class="sponsor-name">Code Club</span></div>
+            <div class="sponsor-card" aria-hidden="true"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/yxXXm6t/microbit.png" alt="micro:bit" /></div><span class="sponsor-name">micro:bit</span></div>
+            <div class="sponsor-card" aria-hidden="true"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/k2ymRB0Q/scratch-foundation.jpg" alt="Scratch" /></div><span class="sponsor-name">Scratch Foundation</span></div>
+            <div class="sponsor-card" aria-hidden="true"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/sdC9cQJ4/Google-skills.png" alt="Google Skills" /></div><span class="sponsor-name">Google Skills</span></div>
+            <div class="sponsor-card" aria-hidden="true"><div class="sponsor-img-wrapper"><img src="https://i.ibb.co/FbYDRpbv/clasam.jpg" alt="Clasam" /></div><span class="sponsor-name">Clasam Schools</span></div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
   </main>
 
-
-  <!-- Sponsors Section -->
-  <section class="sponsors-section reveal">
-  <div class="sponsors-header">
-    <span class="eyebrow-sm">Empowered By</span>
-    <p class="muted">Our Sponsors & Partners</p>
-  </div>
-
-  <div class="sponsors-slider">
-    <!-- Fade overlays on edges -->
-    <div class="sponsors-fade left"></div>
-    <div class="sponsors-fade right"></div>
-
-    <div class="sponsors-track">
-      <!-- Original Set -->
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/vv1svn9w/Raspberry-Pi-Logo.jpg" alt="Raspberry Pi Logo">
-        </div>
-        <span class="sponsor-name">Raspberry Pi</span>
-      </div>
-
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/XkjM99Tt/Code-Club-Green.png" alt="Code Club Logo">
-        </div>
-        <span class="sponsor-name">Code Club</span>
-      </div>
-
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/yxXXm6t/microbit.png" alt="micro:bit Logo">
-        </div>
-        <span class="sponsor-name">micro:bit</span>
-      </div>
-
-      <!-- Uncomment when image is ready
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="YOUR_IMAGE_LINK_HERE" alt="Microsoft Learn Logo">
-        </div>
-        <span class="sponsor-name">Microsoft Learn</span>
-      </div>
-      -->
-
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/k2ymRB0Q/scratch-foundation.jpg" alt="Scratch Foundation Logo">
-        </div>
-        <span class="sponsor-name">Scratch Foundation</span>
-      </div>
-
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/sdC9cQJ4/Google-skills.png" alt="Google Skills Logo">
-        </div>
-        <span class="sponsor-name">Google Skills</span>
-      </div>
-
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/FbYDRpbv/clasam.jpg" alt="Clasam Schools Logo">
-        </div>
-        <span class="sponsor-name">Clasam Schools</span>
-      </div>
-
-      <!-- Uncomment when image is ready
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="YOUR_IMAGE_LINK_HERE" alt="GitHub Education Logo">
-        </div>
-        <span class="sponsor-name">GitHub Education</span>
-      </div>
-      -->
-
-      <!-- Duplicated Set for Seamless Infinite Loop -->
-      <div class="sponsor-card" aria-hidden="true">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/vv1svn9w/Raspberry-Pi-Logo.jpg" alt="Raspberry Pi Logo">
-        </div>
-        <span class="sponsor-name">Raspberry Pi</span>
-      </div>
-
-      <div class="sponsor-card" aria-hidden="true">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/XkjM99Tt/Code-Club-Green.png" alt="Code Club Logo">
-        </div>
-        <span class="sponsor-name">Code Club</span>
-      </div>
-
-      <div class="sponsor-card" aria-hidden="true">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/yxXXm6t/microbit.png" alt="micro:bit Logo">
-        </div>
-        <span class="sponsor-name">micro:bit</span>
-      </div>
-
-      <!-- Uncomment when image is ready
-      <div class="sponsor-card" aria-hidden="true">
-        <div class="sponsor-img-wrapper">
-          <img src="YOUR_IMAGE_LINK_HERE" alt="Microsoft Learn Logo">
-        </div>
-        <span class="sponsor-name">Microsoft Learn</span>
-      </div>
-      -->
-
-      <div class="sponsor-card" aria-hidden="true">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/k2ymRB0Q/scratch-foundation.jpg" alt="Scratch Foundation Logo">
-        </div>
-        <span class="sponsor-name">Scratch Foundation</span>
-      </div>
-
-      <div class="sponsor-card" aria-hidden="true">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/sdC9cQJ4/Google-skills.png" alt="Google Skills Logo">
-        </div>
-        <span class="sponsor-name">Google Skills</span>
-      </div>
-
-      <div class="sponsor-card" aria-hidden="true">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/FbYDRpbv/clasam.jpg" alt="Clasam Schools Logo">
-        </div>
-        <span class="sponsor-name">Clasam Schools</span>
-      </div>
-
-      <!-- Uncomment when image is ready
-      <div class="sponsor-card" aria-hidden="true">
-        <div class="sponsor-img-wrapper">
-          <img src="YOUR_IMAGE_LINK_HERE" alt="GitHub Education Logo">
-        </div>
-        <span class="sponsor-name">GitHub Education</span>
-      </div>
-      -->
-    </div>
-  </div>
-</section>
-  <!-- End - Sponsors Section -->
-
-  <footer style="text-align: center; padding: 40px 20px;">
+  <footer>
     <p>© 2026 Prime Programmers Hub. Empowering the next generation of African developers.</p>
-    <a class="btn" href="#home">Back to top ↑</a>
+    <button class="btn" style="margin-top:0.5rem;height:auto;padding:0.4rem 1.2rem;background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:30px;" onclick="document.querySelector('.chat-wrapper').scrollIntoView({behavior:'smooth'})">Back to chat ↑</button>
   </footer>
 
-  <script src="code-bg.js" defer></script>
-  <script src="script.js" defer></script>
+  <!-- JavaScript Files -->
+  <script src="code-bg.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>

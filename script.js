@@ -1,24 +1,51 @@
-// Mobile drawer
-(function () {
-  const btn = document.getElementById('menuBtn');
-  const drawer = document.getElementById('mobileNav');
-  btn.addEventListener('click', () => {
-    const open = drawer.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(open));
+// ===== SHOW/HIDE SECTIONS =====
+window.showSection = function(sectionId) {
+  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('visible'));
+  const target = document.getElementById(sectionId);
+  if (target) {
+    target.classList.add('visible');
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+};
+
+// Button click handlers
+document.querySelectorAll('.option-btn[data-target]').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const targetId = this.getAttribute('data-target');
+    if (targetId) showSection(targetId);
   });
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
+});
+
+// ===== HERO SLIDER (mini) =====
+(function() {
+  const slides = document.querySelectorAll('.hero-slider-mini .slide');
+  const dots = document.querySelectorAll('.hero-slider-mini .dot');
+  if (!slides.length) return;
+  let current = 0,
+    timer;
+
+  function showSlide(index) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+
+  function rotate() { current = (current + 1) % slides.length;
+    showSlide(current); }
+
+  function startTimer() { timer = setInterval(rotate, 5000); }
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearInterval(timer);
+    else startTimer();
+  });
+  startTimer();
 })();
 
-// Intersection-based reveal animations
-(function () {
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
-  }, { threshold: .15 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-})();
-
-// Testimonials rotator
-(function () {
+// ===== TESTIMONIALS ROTATOR =====
+(function() {
   const quotes = [
     { t: "Prime Programmers Hub gave me the confidence to build my first website. Now I'm teaching my friends how to code too!", a: "— Sarah, 15" },
     { t: "My mentor is so friendly and helpful. I love the community projects and challenges!", a: "— James, 16" },
@@ -28,97 +55,105 @@
     { t: "The community is amazing! I collaborated on web apps, attended bootcamps, and now mentor juniors.", a: "— Fatima, 19" },
     { t: "From coding my first app to presenting it online, the support from Prime Programmers Hub was incredible.", a: "— Leo, 20" },
     { t: "I never imagined I'd learn robotics and web development while making lifelong friends in one place.", a: "— Amaka, 21" },
-    { t: "Prime Programmers Hub helped me turn my coding hobby into serious projects I’m proud of sharing.", a: "— Chike, 22" }
+    { t: "Prime Programmers Hub helped me turn my coding hobby into serious projects I'm proud of sharing.", a: "— Chike, 22" }
   ];
+  let i = 0;
+  const el = document.getElementById('tList');
+  if (!el) return;
 
-  let i = 0; const el = document.getElementById('tList');
-  const render = () => { el.style.opacity = 0; setTimeout(() => { el.innerHTML = `<div>“${quotes[i].t}”</div><div style="margin-top:.6rem;font-weight:800;color:var(--brand)">${quotes[i].a}</div>`; el.style.opacity = 1; }, 200); };
-  render(); setInterval(() => { i = (i + 1) % quotes.length; render(); }, 4200);
+  function renderTesti() {
+    el.style.opacity = 0;
+    setTimeout(() => {
+      el.innerHTML = `<div>“${quotes[i].t}”</div><div style="margin-top:.6rem;font-weight:800;color:var(--brand)">${quotes[i].a}</div>`;
+      el.style.opacity = 1;
+    }, 200);
+  }
+  renderTesti();
+  setInterval(() => { i = (i + 1) % quotes.length;
+    renderTesti(); }, 4200);
 })();
 
-
-
-
-
-// Hero Slideshow Controller
-(function () {
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
-  let current = 0;
-  const interval = 5000; // 5 seconds per slide
-
-  function showSlide(index) {
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-    
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-  }
-
-  function nextSlide() {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  }
-
-  // Optional: Pause when tab is not active to save Chromebook resources
-  let sliderTimer = setInterval(nextSlide, interval);
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      clearInterval(sliderTimer);
-    } else {
-      sliderTimer = setInterval(nextSlide, interval);
-    }
-  });
-})();
-
-
-
-(function () {
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
-  let current = 0;
+// ===== JOIN FORM (from original source) =====
+(function() {
+  const form = document.getElementById('joinForm');
+  const btn = document.getElementById('joinBtn');
+  const anim = document.getElementById('successAnimation');
+  if (!form) return;
   
-  function showSlide(index) {
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-  }
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Applying...';
 
-  setInterval(() => {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  }, 5000);
+    const data = new FormData(form);
+
+    // Replace the URL below with your deployed Google Apps Script Web App URL
+    fetch('https://script.google.com/macros/s/AKfycbyTlZPuJi6oIdRBH5J_fA-3J8wTIAYuh1yIv3E7mAZI-SuuOjOm8fQGcswRLHX4J1AYdA/exec', {
+      method: 'POST',
+      body: data
+    })
+    .then(res => res.text())
+    .then(response => {
+      btn.textContent = 'Applied';
+      form.reset();
+      anim.style.display = 'block';
+      anim.innerHTML = '<i style="color:#FFEA00; font-size:19px;">You have applied! Check your email for follow up.</i>';
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Submission failed. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Apply';
+    });
+  });
 })();
 
-
-
-(function () {
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
-  let current = 0;
-  let timer;
-
-  function rotate() {
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
+// ===== CERTIFICATE VERIFICATION =====
+(function() {
+  const verifyBtn = document.getElementById('verifyBtn');
+  const resultDiv = document.getElementById('result');
+  const certInput = document.getElementById('certificateId');
+  if (!verifyBtn) return;
+  
+  const webAppURL = "https://script.google.com/macros/s/AKfycbwPp432y_PHVxKmJdvgS_hzacky8s_OiItnElY8mhfBXjEA0sUUAFhwa5qQv4oi_49P/exec";
+  
+  verifyBtn.addEventListener('click', () => {
+    const certId = certInput.value.trim();
+    resultDiv.innerHTML = "";
     
-    current = (current + 1) % slides.length;
+    if (!certId) { 
+      resultDiv.innerHTML = '<p style="color:red;font-weight:600;">⚠️ Please enter a Certificate ID.</p>'; 
+      return; 
+    }
     
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
+    resultDiv.innerHTML = '<p style="color:gray;">🔍 Verifying...</p>';
+    
+    fetch(`${webAppURL}?certificateId=${encodeURIComponent(certId)}`)
+      .then(res => {
+        if (!res.ok) throw new Error("Network error");
+        return res.json();
+      })
+      .then(data => {
+        if (data.found) {
+          const studentName = data.record.Name || "a PPH Member";
+          const courseName = data.record.Course || "a PPH Program";
+          const issueDate = data.record.Date || "N/A";
 
-  function startTimer() {
-    timer = setInterval(rotate, 6000); // 6 seconds to allow for the zoom effect
-  }
-
-  // Handle visibility to save Chromebook resources
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) clearInterval(timer);
-    else startTimer();
+          resultDiv.innerHTML = `
+            <div style="border:2px solid #28a745; padding:15px; border-radius:8px; background-color:rgba(40,167,69,0.05); text-align:left; max-width:350px; margin:auto;">
+              <p style="color:#28a745; font-weight:800; margin-bottom:10px; text-align:center;">✅ OFFICIAL VERIFICATION</p>
+              <p style="margin:5px 0;"><strong>Name:</strong> ${studentName}</p>
+              <p style="margin:5px 0;"><strong>Course:</strong> ${courseName}</p>
+              <p style="margin:5px 0;"><strong>Date:</strong> ${issueDate}</p>
+              <p style="margin:5px 0;"><strong>Status:</strong> ${data.record.Status || 'Verified'}</p>
+            </div>`;
+        } else {
+          resultDiv.innerHTML = '<p style="color:red;font-weight:600;">❌ Certificate not found. Please check the ID.</p>';
+        }
+      })
+      .catch(err => { 
+        resultDiv.innerHTML = '<p style="color:red;font-weight:600;">⚠️ Connection error. Please try again.</p>';
+        console.error(err);
+      });
   });
-
-  startTimer();
 })();

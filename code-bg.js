@@ -6,8 +6,14 @@
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) return; // don't run heavy animations
 
-  const canvas = document.getElementById('code-bg');
-  if (!canvas) return;
+  // Create canvas if it doesn't exist
+  let canvas = document.getElementById('code-bg');
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+    canvas.id = 'code-bg';
+    canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.4;mix-blend-mode:screen;';
+    document.body.prepend(canvas);
+  }
 
   const ctx = canvas.getContext('2d', { alpha: true });
   let width = 0;
@@ -33,6 +39,7 @@
   let columns = [];
   let animationId = null;
   let lastTime = 0;
+  let snippets = [];
 
   function resize() {
     dpr = Math.max(1, window.devicePixelRatio || 1);
@@ -60,32 +67,43 @@
     }
   }
 
+  function spawnSnippet(x, y) {
+    const text = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+    const size = Math.max(12, Math.round(Math.min(width, height) / 50)) + Math.random() * 8;
+    snippets.push({
+      x, y,
+      text,
+      size,
+      age: 0,
+      lifetime: 2500 + Math.random() * 3000,
+      angle: (Math.random() * 40 - 20),
+      spin: (Math.random() * 40 - 20),
+      color: `rgba(180,230,255,${0.9 - Math.random() * 0.5})`
+    });
+  }
+
   function draw(timestamp) {
     // Throttle/fps smoothing
     if (!lastTime) lastTime = timestamp;
     const dt = timestamp - lastTime;
     lastTime = timestamp;
 
-    // semi-transparent background for trailing effect
     ctx.clearRect(0, 0, width, height);
 
-    // subtle dark overlay to keep contrast controlled (canvas already low opacity via CSS)
-    // draw falling characters
+    // Draw falling characters
     for (let i = 0; i < columns.length; i++) {
       const col = columns[i];
 
-      // Draw a few random glyphs down the column
       const lines = 3;
       for (let s = 0; s < lines; s++) {
         const char = glyphs[(Math.floor(Math.random() * glyphs.length))];
         const alpha = 0.06 + Math.random() * 0.18;
-        ctx.fillStyle = `rgba(120,200,255,${alpha})`; // cool bluish
+        ctx.fillStyle = `rgba(120,200,255,${alpha})`;
         ctx.fillText(char, col.x, (col.y + s * col.fontSize));
       }
 
       col.y += col.speed * (dt / 16.67);
 
-      // occasionally insert a short code snippet that scrolls/rotates
       if (Math.random() < 0.002) {
         spawnSnippet(col.x + (Math.random() * 40 - 20), Math.random() * height * 0.7);
       }
@@ -96,7 +114,7 @@
       }
     }
 
-    // draw active snippets
+    // Draw active snippets
     for (let i = snippets.length - 1; i >= 0; i--) {
       const s = snippets[i];
       s.age += dt;
@@ -117,24 +135,7 @@
     animationId = window.requestAnimationFrame(draw);
   }
 
-  // snippet system
-  const snippets = [];
-  function spawnSnippet(x, y) {
-    const text = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-    const size = Math.max(12, Math.round(Math.min(width, height) / 50)) + Math.random() * 8;
-    snippets.push({
-      x, y,
-      text,
-      size,
-      age: 0,
-      lifetime: 2500 + Math.random() * 3000,
-      angle: (Math.random() * 40 - 20),
-      spin: (Math.random() * 40 - 20),
-      color: `rgba(180,230,255,${0.9 - Math.random() * 0.5})`
-    });
-  }
-
-  // pause when hidden to reduce CPU
+  // Pause when hidden to reduce CPU
   function handleVisibility() {
     if (document.hidden) {
       if (animationId) {
@@ -149,10 +150,9 @@
     }
   }
 
-  // init
+  // Init
   resize();
   window.addEventListener('resize', () => {
-    // small debounce
     clearTimeout(window.__codeBgResizeTimer);
     window.__codeBgResizeTimer = setTimeout(resize, 120);
   }, { passive: true });
@@ -163,7 +163,7 @@
   // Start animation
   if (!animationId) animationId = requestAnimationFrame(draw);
 
-  // Optional: expose a small API for runtime control (global)
+  // Expose API
   window.__codeBg = {
     pause: () => {
       if (animationId) { cancelAnimationFrame(animationId); animationId = null; }
